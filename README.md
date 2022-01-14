@@ -28,7 +28,7 @@
 To get a local copy up and running on your machine, follow these simple steps.
 Enter this in your terminal 👇
 ```
-  git clone git@github.com:Qoosim/math-magicians-react.git
+ git@github.com:Qoosim/todoList-react.git 
 ```
 ## 🛠️ Prerequisites
 ```
@@ -46,6 +46,7 @@ Enter this in your terminal 👇
 
 - GitHub: [Qoosim](https://github.com/Qoosim)
 - LinkedIn: [Qoosim](https://www.linkedin.com/in/qoosim)
+- Twitter: [Qoosim](https://twitter.com/qoosim_ayinde)
 
 ## 🤝 Contributing
 
