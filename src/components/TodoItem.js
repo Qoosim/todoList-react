@@ -3,13 +3,20 @@ import styles from './TodoItem.module.css';
 
 class TodoItem extends React.Component {
   state = {
-    editing: false
   }
 
   handleEditing = () => {
     this.setState({
-      editing: true
+      editing: true,
     })
+  }
+
+  handleUpdatedDone = event => {
+    if (event.key === 'Enter') {
+      this.setState({
+        editing: false
+      })
+    }
   }
 
   render() {
@@ -33,7 +40,7 @@ class TodoItem extends React.Component {
 
     return (
       <li className={styles.item}>
-        <div onDoubleClick={this.handleEditing.bind(this)} style={viewMode}>
+        <div onDoubleClick={this.handleEditing} style={viewMode}>
           <input 
             type="checkbox" 
             className={styles.checkbox}
@@ -55,6 +62,7 @@ class TodoItem extends React.Component {
           onChange={e => {
             this.props.setUpdate(e.target.value, id);
           }}
+          onKeyDown={this.handleUpdatedDone}
         />
       </li>
     )

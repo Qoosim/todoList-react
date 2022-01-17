@@ -6,23 +6,7 @@ import { v4 as uuidv4 } from 'uuid';
 
 class TodoContainer extends React.Component {
   state = {
-      todos: [
-      {
-        id: uuidv4(),
-        title: 'Setup development environment',
-        completed: false
-      },
-      {
-        id: uuidv4(),
-        title: 'Develop website and add content',
-        completed: false
-      },
-      {
-        id: uuidv4(),
-        title: 'Deploy to live server',
-        completed: false
-      }
-      ]
+      todos: []
   };
 
   // Handle toggling of checkbox
@@ -67,8 +51,16 @@ class TodoContainer extends React.Component {
           todo.title = updatedTitle
         }
         return todo;
-      })
+      }),
     }))
+  }
+
+  componentDidMount() {
+    fetch('https://jsonplaceholder.typicode.com/todos?_limit=10')
+      .then(response => response.json())
+      .then(data => this.setState({
+        todos: data
+      }));
   }
 
   render() {
